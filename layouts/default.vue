@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div>
   </div>
@@ -9,10 +8,10 @@ import Vue from 'vue'
 
 export default Vue.extend({
   // eslint-disable-next-line vue/multi-word-component-names
-  name: 'Index',
+  name: 'Default',
 })
 </script>
 
 <style lang='scss'>
-@import '~/static/scss/index.scss';
+@import '~/static/scss/default.scss';
 </style>

@@ -9,10 +9,10 @@ import Vue from 'vue'
 
 export default Vue.extend({
   // eslint-disable-next-line vue/multi-word-component-names
-  name: 'Index',
+  name: 'Login',
 })
 </script>
 
 <style lang='scss'>
-@import '~/static/scss/index.scss';
+@import '~/static/scss/Login.scss';
 </style>
