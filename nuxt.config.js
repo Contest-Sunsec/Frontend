@@ -18,9 +18,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    '~/static/scss/global.scss',
-  ],
+  css: ['~/static/scss/global.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -32,7 +30,8 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    'cookie-universal-nuxt',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -51,6 +50,7 @@ export default {
   build: {},
 
   server: {
-    port: 8080
-  }
-}
+    port: 8080,
+  },
+
+};
