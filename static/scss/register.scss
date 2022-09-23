@@ -70,7 +70,7 @@
         font-weight: 500;
         margin-bottom: 20px;
       }
-      
+
       input {
         width: 390px;
         height: 50px;
@@ -83,7 +83,7 @@
         margin-top: 5px;
         border: 0;
         outline: 0;
-  
+
         &:focus {
           color: black;
         }
@@ -92,10 +92,21 @@
   }
 
   &_error {
-    text-align: center;
-    color: #ff3333;
-    font-weight: 600;
-    font-size: 20px;
-    margin-top: 10px;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 25px;
+      height: 25px;
+      margin-right: 13px;
+    }
+
+    p {
+      text-align: center;
+      color: #dd2e2e;
+      font-weight: 500;
+      font-size: 18px;
+    }
   }
 }

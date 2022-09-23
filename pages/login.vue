@@ -1,9 +1,8 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="login">
     <div class="login_wrapper">
       <div class="login_logo">
-        <img src="~/static/images/logo.png">
+        <img src="~/static/images/logo.png" />
         <p>Farmsert</p>
       </div>
 
@@ -16,20 +15,28 @@
       <div class="login_wrapper_input">
         <div class="login_input">
           <p>이메일 주소</p>
-          <input type="text" placeholder="이메일 주소를 입력해주세요">
+          <input
+            v-model="email"
+            type="text"
+            placeholder="이메일 주소를 입력해주세요"
+          />
         </div>
 
         <div class="login_input">
           <p>비밀번호 입력</p>
-          <input type="password" placeholder="비밀번호를 입력해주세요">
+          <input
+            v-model="password"
+            type="password"
+            placeholder="비밀번호를 입력해주세요"
+          />
         </div>
       </div>
 
       <div class="login_password">
         <div class="login_password_remember">
-          <input id="login_checkbox" type="checkbox">
+          <input id="login_checkbox" type="checkbox" />
           <label for="login_checkbox">
-            <img src="~/static/images/checkbox.svg">
+            <img src="~/static/images/checkbox.svg" />
           </label>
           <p>비밀번호 기억하기</p>
         </div>
@@ -37,7 +44,7 @@
         <p>비밀번호 찾기</p>
       </div>
 
-      <button class="login_button">Farmsert에 로그인</button>
+      <button class="login_button" @click="login">Farmsert에 로그인</button>
 
       <div class="login_account">
         <p>계정이 없으신가요?</p>
@@ -47,21 +54,45 @@
   </div>
 </template>
 
-<script lang='ts'>
-import Vue from 'vue'
+<script lang="ts">
+import Vue from 'vue';
+import "cookie-universal-nuxt";
+import { postLogin } from '~/api';
 
 export default Vue.extend({
-  // eslint-disable-next-line vue/multi-word-component-names
   name: 'Login',
   layout: 'login',
+  data() {
+    return {
+      email: '',
+      password: '',
+      error: '',
+      errorMessage: '',
+    };
+  },
   methods: {
     register() {
-      this.$router.push('/register')
-    }
-  }
-})
+      this.$router.push('/register');
+    },
+
+    async login() {
+      const res = await postLogin({
+        email: this.email,
+        password: this.password,
+      });
+
+      if (res.status === 200) {
+        this.$cookies.set('token', res.data.responseData.token);
+        this.$router.push('/');
+      } else {
+        this.error = res.data.error;
+        this.errorMessage = res.data.message;
+      }
+    },
+  },
+});
 </script>
 
-<style lang='scss'>
+<style lang="scss">
 @import '~/static/scss/login.scss';
 </style>

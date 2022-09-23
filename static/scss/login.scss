@@ -48,7 +48,6 @@
   }
 
   &_input {
-
     input {
       width: 390px;
       height: 50px;
@@ -93,7 +92,7 @@
       align-items: center;
       gap: 10px;
 
-      label[for="login_checkbox"] {
+      label[for='login_checkbox'] {
         width: 30px;
         height: 30px;
         border-radius: 3px;
@@ -110,7 +109,7 @@
         }
       }
 
-      input[id="login_checkbox"] {
+      input[id='login_checkbox'] {
         display: none;
 
         &:checked + label img {
