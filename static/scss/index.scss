@@ -1,0 +1,247 @@
+.index {
+  width: 100%;
+
+  &_title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 60px;
+
+    h1 {
+      font-size: 24px;
+      font-weight: 500;
+    }
+  }
+
+  &_info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &_item {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      padding: 11px 15px;
+      background-color: white;
+      border-radius: 15px;
+      border: solid 1px #e4e4e4;
+
+      p {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--base_2);
+      }
+
+      &_model {
+        padding: 13px 24px;
+
+        p {
+          color: black !important;
+        }
+      }
+    }
+  }
+
+  &_btn {
+    cursor: pointer;
+  }
+
+  &_box {
+    background-color: white;
+    border-radius: 35px;
+    border: solid 1px #e4e4e4;
+  }
+
+  &_hardware {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 25px;
+
+    &_top {
+      display: flex;
+      gap: 20px;
+      width: 100%;
+
+      p {
+        font-size: 15px;
+        font-weight: 600;
+        color: #b0b0b0;
+  
+        &:first-child {
+          font-size: 20px;
+          color: black;
+        }
+      }
+    }
+
+    &_bottom {
+      display: flex;
+      gap: 20px;
+    }
+
+    
+
+    h1 {
+      margin-top: 16px;
+      margin-bottom: 10px;
+      color: var(--base_2);
+      font-size: 40px;
+      font-weight: 700;
+    }
+
+    &_temp {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 23px 43px;
+    }
+
+    &_humidity {
+      display: flex;
+      gap: 5px;
+      padding: 6px 7px;
+
+      &_default {
+        display: flex;
+        gap: 35px;
+        padding: 17px 36px;
+
+        div {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+
+    &_info {
+      padding: 5px 5px;
+      display: flex;
+      align-items: center;
+
+      &_box {
+        display: flex;
+        flex-direction: column;
+        padding: 15px 20px;
+        width: 100%;
+        height: 100%;
+      }
+
+      &_description {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 40px;
+      }
+
+      &_item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        img {
+          filter: brightness(0) invert(1);
+          display: flex;
+          width: 25px;
+          height: 25px;
+        }
+
+        &_img {
+          background-color: var(--base_2);
+          padding: 9px;
+          border-radius: 15px;
+        }
+        
+        p {
+          font-size: 16px;
+          font-weight: 500;
+          color: black;
+        }
+      }
+
+      &_title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+
+        p {
+          font-size: 18px;
+          font-weight: 600;
+          color: #000;
+
+          &:last-child {
+            color: var(--base_2);
+          }
+        }
+      }
+    }
+
+    &_sensor {
+      &s {
+        padding: 25px;
+        padding-right: 60px;
+        display: flex;
+        gap: 80px;
+      }
+
+      &_title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 15px;
+
+        p {
+          font-size: 20px;
+          font-weight: 600;
+          color: var(--base_2);
+        }
+      }
+
+      &_status {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--base_2);
+      }
+
+      &_description {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        margin-top: 10px;
+
+        p {
+          font-size: 16px;
+          font-weight: 600;
+
+          &:last-child {
+            color: var(--base_2);
+          }
+        }
+      }
+    }
+
+    &_speed {
+      flex: 1;
+      display: flex;
+      gap: 60px;
+    }
+
+    &_image {
+      background-color: #f9f9f9;
+      padding: 13px 22px;
+      border-radius: 35px;
+    }
+    
+    &_info {
+      flex: 1;
+    }
+  }
+}
+
+#map {
+  width: 320px;
+  height: 100%;
+  border-radius: 35px;
+}

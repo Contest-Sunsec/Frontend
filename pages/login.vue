@@ -1,8 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="login">
-    <img class="login_background" src="~/static/images/login/Background.svg">
-
     <div class="login_wrapper">
       <div class="login_logo">
         <img src="~/static/images/logo.png">
@@ -23,19 +21,27 @@
 
         <div class="login_input">
           <p>비밀번호 입력</p>
-          <input type="text" placeholder="비밀번호를 입력해주세요">
+          <input type="password" placeholder="비밀번호를 입력해주세요">
         </div>
       </div>
 
       <div class="login_password">
         <div class="login_password_remember">
+          <input id="login_checkbox" type="checkbox">
           <label for="login_checkbox">
-            <input id="login_checkbox" type="checkbox">
+            <img src="~/static/images/checkbox.svg">
           </label>
           <p>비밀번호 기억하기</p>
         </div>
 
         <p>비밀번호 찾기</p>
+      </div>
+
+      <button class="login_button">Farmsert에 로그인</button>
+
+      <div class="login_account">
+        <p>계정이 없으신가요?</p>
+        <p class="login_register" @click="register">회원가입하기</p>
       </div>
     </div>
   </div>
@@ -47,6 +53,12 @@ import Vue from 'vue'
 export default Vue.extend({
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'Login',
+  layout: 'login',
+  methods: {
+    register() {
+      this.$router.push('/register')
+    }
+  }
 })
 </script>
 

@@ -4,17 +4,9 @@
 
   display: flex;
   align-items: center;
-
-  &_background {
-    height: 100vh;
-    position: absolute;
-    right: 0%;
-    z-index: -1;
-  }
+  justify-content: center;
 
   &_wrapper {
-    margin-left: 10rem;
-
     &_input {
       margin-top: 25px;
       display: flex;
@@ -69,6 +61,10 @@
       margin-top: 5px;
       border: 0;
       outline: 0;
+
+      &:focus {
+        color: black;
+      }
     }
 
     p {
@@ -97,11 +93,29 @@
       align-items: center;
       gap: 10px;
 
-      input[id="login_checkbox"] {
+      label[for="login_checkbox"] {
         width: 30px;
         height: 30px;
-        border-radius: 5px;
+        border-radius: 3px;
         border: solid 1px #d1d1d1;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          display: none;
+          width: 109%;
+          height: 109%;
+        }
+      }
+
+      input[id="login_checkbox"] {
+        display: none;
+
+        &:checked + label img {
+          display: block;
+        }
       }
 
       p {
@@ -110,5 +124,37 @@
         color: #9a9a9a;
       }
     }
+  }
+
+  &_button {
+    margin-top: 25px;
+    width: 100%;
+    background-color: var(--base_2);
+    color: white;
+    line-height: 40px;
+    font-size: 18px;
+    padding: 5px 0;
+    border-radius: 15px;
+    border: 0;
+    cursor: pointer;
+  }
+
+  &_account {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    gap: 5px;
+
+    p {
+      font-weight: 600;
+      line-height: 40px;
+      font-size: 16px;
+      color: #9a9a9a;
+    }
+  }
+
+  &_register {
+    color: var(--base_2) !important;
+    cursor: pointer;
   }
 }

@@ -1,4 +1,5 @@
 @import "./fonts.scss";
+@import "./variables.scss";
 
 * {
   box-sizing: border-box;
@@ -14,4 +15,6 @@
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
+
+  user-select: none;
 }
