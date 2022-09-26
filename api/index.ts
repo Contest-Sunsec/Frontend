@@ -33,7 +33,7 @@ export async function getUserData() {
   return res;
 }
 
-export async function forgotPassword(email: string) {
+export async function forgotPassword(email: object) {
   const res = await getAPI
     .post('/auth/forgotPassword', email)
     .then((res) => res)

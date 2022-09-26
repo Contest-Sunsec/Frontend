@@ -156,4 +156,23 @@
     color: var(--base_2) !important;
     cursor: pointer;
   }
+
+  &_error {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 25px;
+      height: 25px;
+      margin-right: 13px;
+    }
+
+    p {
+      text-align: center;
+      color: #dd2e2e;
+      font-weight: 500;
+      font-size: 18px;
+    }
+  }
 }

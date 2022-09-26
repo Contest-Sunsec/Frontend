@@ -41,12 +41,17 @@
           <p>비밀번호 기억하기</p>
         </div>
 
-        <p>비밀번호 찾기</p>
+        <p @click="forgot">비밀번호 찾기</p>
       </div>
 
       <button class="login_button" @click="login">Farmsert에 로그인</button>
 
-      <div class="login_account">
+      
+      <div v-if="error" class="login_error">
+        <img src="~/static/images/error.svg" alt="">
+        <p>{{ errorMessage }}</p>
+      </div>
+      <div v-else class="login_account">
         <p>계정이 없으신가요?</p>
         <p class="login_register" @click="register">회원가입하기</p>
       </div>
@@ -66,13 +71,17 @@ export default Vue.extend({
     return {
       email: '',
       password: '',
-      error: '',
+      error: false,
       errorMessage: '',
     };
   },
   methods: {
     register() {
       this.$router.push('/register');
+    },
+
+    forgot() {
+      this.$router.push('/forgot-password');
     },
 
     async login() {
@@ -85,7 +94,7 @@ export default Vue.extend({
         this.$cookies.set('token', res.data.responseData.token);
         this.$router.push('/');
       } else {
-        this.error = res.data.error;
+        this.error = true;
         this.errorMessage = res.data.message;
       }
     },
