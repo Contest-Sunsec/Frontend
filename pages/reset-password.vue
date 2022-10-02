@@ -24,6 +24,7 @@
           />
       </div>
       <button v-if="!isReset" class="forgot_button" @click="resetPassword">다음</button>
+      <button v-else class="forgot_button" @click="redirectLogin">로그인</button>
 
       <div v-if="error" class="forgot_error">
         <img src="~/static/images/error.svg" alt="">
@@ -67,6 +68,7 @@ export default Vue.extend({
       });
       if (res.status === 200) {
         this.isReset = true;
+        this.error = false;
         this.textContent.title = ['비밀번호 재설정이', '완료되었습니다.'];
         this.textContent.message = ['이제 Farmsert를 시작해보세요!'];
       } else {
@@ -74,6 +76,9 @@ export default Vue.extend({
         this.errorMessage = res.data.message; 
       }
     },
+    redirectLogin() {
+      this.$router.push('/login');
+    }
   },
 });
 </script>

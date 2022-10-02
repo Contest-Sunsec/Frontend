@@ -60,7 +60,7 @@ import Vue from 'vue';
 import { postRegister } from '~/api';
 
 export default Vue.extend({
-  name: 'Register',
+  name: 'RegisterPage',
   layout: 'login',
   data() {
     return {

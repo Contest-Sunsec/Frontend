@@ -9,11 +9,6 @@
           <p>ON</p>
         </button>
 
-        <div class="index_info_item">
-          <img src="~/static/images/bettery.svg" />
-          <p>42%</p>
-        </div>
-
         <div class="index_info_item index_info_item_model">
           <p>Farmsert-M14598U</p>
         </div>
@@ -100,32 +95,29 @@
             </div>
             <p class="index_hardware_sensor_status">센서 정상 작동중</p>
             <div class="index_hardware_sensor_description">
-              <p>산성도 /</p>
-              <p>7pH</p>
+              <p>센서가 안전함</p>
             </div>
           </div>
 
           <div class="index_hardware_sensor">
             <div class="index_hardware_sensor_title">
-              <img src="~/static/images/water.svg" />
+              <img src="~/static/images/sun.svg" />
               <p>조도 센서</p>
             </div>
             <p class="index_hardware_sensor_status">센서 정상 작동중</p>
             <div class="index_hardware_sensor_description">
-              <p>밝음 /</p>
-              <p>밝음</p>
+              <p>센서가 안전함</p>
             </div>
           </div>
 
           <div class="index_hardware_sensor">
             <div class="index_hardware_sensor_title">
-              <img src="~/static/images/water.svg" />
+              <img src="~/static/images/sun.svg" />
               <p>온습도 센서</p>
             </div>
             <p class="index_hardware_sensor_status">센서 정상 작동중</p>
             <div class="index_hardware_sensor_description">
-              <p>습도 /</p>
-              <p>32%</p>
+              <p>센서가 안전함</p>
             </div>
           </div>
 
@@ -136,14 +128,53 @@
             </div>
             <p class="index_hardware_sensor_status">센서 정상 작동중</p>
             <div class="index_hardware_sensor_description">
-              <p>토양 습도 /</p>
-              <p>30cmHg</p>
+              <p>센서가 안전함</p>
             </div>
           </div>
         </div>
 
-        <div class="index_box index_hardware_speed"></div>
+        <div class="index_box index_hardware_speed">
+          <div class="index_hardware_sensor">
+            <div class="index_hardware_sensor_title">
+              <img src="~/static/images/wifi.svg" />
+              <p>전송 속도</p>
+            </div>
+            <p class="index_hardware_sensor_status">센서 정상 작동중</p>
+            <div class="index_hardware_sensor_description index_hardware_speed_p">
+              <p>속도 / </p>
+              <p>320Mbps</p>
+            </div>
+          </div>
+
+          <div class="index_hardware_sensor">
+            <div class="index_hardware_sensor_title">
+              <img src="~/static/images/wifi.svg" />
+              <p>응답 속도</p>
+            </div>
+            <p class="index_hardware_sensor_status">센서 정상 작동중</p>
+            <div class="index_hardware_sensor_description index_hardware_speed_p">
+              <p>속도 / </p>
+              <p>5ms</p>
+            </div>
+          </div>
+
+          <div class="index_hardware_sensor">
+            <div class="index_hardware_sensor_title">
+              <img src="~/static/images/bettery2.svg" />
+              <p>배터리 상태</p>
+            </div>
+            <p class="index_hardware_sensor_status">센서 정상 작동중</p>
+            <div class="index_hardware_sensor_description index_hardware_speed_rev">
+              <p>420mah </p>
+              <p>사용중</p>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <div class="index_title">
+      <h1>센서 현황</h1>
     </div>
   </div>
 </template>
@@ -158,7 +189,7 @@ declare global {
 }
 
 export default Vue.extend({
-  name: 'Index',
+  name: 'IndexPage',
   data() {
     return {
       map: null

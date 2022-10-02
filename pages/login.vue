@@ -65,7 +65,7 @@ import "cookie-universal-nuxt";
 import { postLogin } from '~/api';
 
 export default Vue.extend({
-  name: 'Login',
+  name: 'LoginPage',
   layout: 'login',
   data() {
     return {
