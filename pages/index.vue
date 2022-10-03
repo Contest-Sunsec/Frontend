@@ -176,6 +176,88 @@
     <div class="index_title">
       <h1>센서 현황</h1>
     </div>
+
+    <div class="index_sensor_wrapper">
+
+      <div class="index_sensor">
+        <div class="index_sensor_title">
+          <h1>토양 EC</h1>
+          <h1>측정 중</h1>
+        </div>
+
+        <h1>2m/s</h1>
+        <div class="index_sensor_sub">
+          <p>제배에 적합함</p>
+          <p>1분 전</p>
+        </div>
+      </div>
+
+      <div class="index_sensor">
+        <div class="index_sensor_title">
+          <h1>토양 EC</h1>
+          <h1>측정 중</h1>
+        </div>
+
+        <h1>2m/s</h1>
+        <div class="index_sensor_sub">
+          <p>제배에 적합함</p>
+          <p>1분 전</p>
+        </div>
+      </div>
+
+      <div class="index_sensor">
+        <div class="index_sensor_title">
+          <h1>토양 EC</h1>
+          <h1>측정 중</h1>
+        </div>
+
+        <h1>2m/s</h1>
+        <div class="index_sensor_sub">
+          <p>제배에 적합함</p>
+          <p>1분 전</p>
+        </div>
+      </div>
+
+      <div class="index_sensor">
+        <div class="index_sensor_title">
+          <h1>토양 EC</h1>
+          <h1>측정 중</h1>
+        </div>
+
+        <h1>2m/s</h1>
+        <div class="index_sensor_sub">
+          <p>제배에 적합함</p>
+          <p>1분 전</p>
+        </div>
+      </div>
+
+      <div class="index_sensor">
+        <div class="index_sensor_title">
+          <h1>토양 EC</h1>
+          <h1>측정 중</h1>
+        </div>
+
+        <h1>2m/s</h1>
+        <div class="index_sensor_sub">
+          <p>제배에 적합함</p>
+          <p>1분 전</p>
+        </div>
+      </div>
+
+      <div class="index_sensor">
+        <div class="index_sensor_title">
+          <h1>토양 EC</h1>
+          <h1>측정 중</h1>
+        </div>
+
+        <h1>2m/s</h1>
+        <div class="index_sensor_sub">
+          <p>제배에 적합함</p>
+          <p>1분 전</p>
+        </div>
+      </div>
+
+    </div>
   </div>
 </template>
 
