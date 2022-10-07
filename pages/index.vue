@@ -2,11 +2,10 @@
   <div class="index">
     <div class="index_title">
       <h1>{{ userData.name }}님, 환영합니다.</h1>
-
       <div class="index_info">
         <button class="index_info_item index_btn">
           <img src="~/static/images/power.svg" />
-          <p>ON</p>
+          <p>{{ !hardwareData?.status?'ON':'OFF' }}</p>
         </button>
 
         <div class="index_info_item index_info_item_model">
@@ -18,26 +17,24 @@
     <div class="index_hardware">
       <div class="index_hardware_top">
         <div class="index_box index_hardware_temp">
-          <p>{{ hardware.position }}</p>
-          <h1>27°C</h1>
-          <p>(최저기온 24°C)</p>
-          <p>습함, 매우 더움</p>
+          <p>{{ hardwareData?.position }}</p>
+          <h1>{{ Math.round(hardwareData?.weather?.temp) }}°C</h1>
+          <p>(최저기온 {{ Math.round(hardwareData?.weather?.min) }}°C)</p>
         </div>
 
         <div class="index_box index_hardware_humidity">
           <div class="index_hardware_humidity_default">
             <div>
               <p>습도</p>
-              <h1>73%</h1>
-              <p>매우 습함</p>
-              <p>불쾌한 습도</p>
+              <h1>{{ hardwareData?.weather?.humidity }}%</h1>
+              <p>{{ hardwareData?.weather?.humidity_message}}</p>
             </div>
 
             <div>
               <p>체감온도</p>
-              <h1>28°C</h1>
-              <p>기존 온도 27°C</p>
-              <p>체감시 더 높음</p>
+              <h1>{{ Math.round(hardwareData?.weather?.feel) }}°C</h1>
+              <p>기존 온도 {{ Math.round(hardwareData?.weather?.temp) }}°C</p>
+              <p>체감시 더 {{ Math.round(hardwareData?.weather?.feel) > Math.round(hardwareData?.weather?.temp) ? '높음' : '낮음'}}</p>
             </div>
           </div>
           <div id="map"></div>
@@ -93,7 +90,7 @@
               <img src="~/static/images/water.svg" />
               <p>산성도 센서</p>
             </div>
-            <p class="index_hardware_sensor_status">센서 정상 작동중</p>
+            <p class="index_hardware_sensor_status">센서 정상 {{ !hardwareData?.status?'작동중':'문제 발생' }}</p>
             <div class="index_hardware_sensor_description">
               <p>센서가 안전함</p>
             </div>
@@ -104,7 +101,7 @@
               <img src="~/static/images/sun.svg" />
               <p>조도 센서</p>
             </div>
-            <p class="index_hardware_sensor_status">센서 정상 작동중</p>
+            <p class="index_hardware_sensor_status">센서 정상 {{ !hardwareData?.status?'작동중':'문제 발생' }}</p>
             <div class="index_hardware_sensor_description">
               <p>센서가 안전함</p>
             </div>
@@ -115,7 +112,7 @@
               <img src="~/static/images/sun.svg" />
               <p>온습도 센서</p>
             </div>
-            <p class="index_hardware_sensor_status">센서 정상 작동중</p>
+            <p class="index_hardware_sensor_status">센서 정상 {{ !hardwareData?.status?'작동중':'문제 발생' }}</p>
             <div class="index_hardware_sensor_description">
               <p>센서가 안전함</p>
             </div>
@@ -126,7 +123,7 @@
               <img src="~/static/images/water.svg" />
               <p>토양 습도 센서</p>
             </div>
-            <p class="index_hardware_sensor_status">센서 정상 작동중</p>
+            <p class="index_hardware_sensor_status">센서 정상 {{ !hardwareData?.status?'작동중':'문제 발생' }}</p>
             <div class="index_hardware_sensor_description">
               <p>센서가 안전함</p>
             </div>
@@ -139,10 +136,10 @@
               <img src="~/static/images/wifi.svg" />
               <p>전송 속도</p>
             </div>
-            <p class="index_hardware_sensor_status">센서 정상 작동중</p>
+            <p class="index_hardware_sensor_status">센서 정상 {{ !hardwareData?.status?'작동중':'문제 발생' }}</p>
             <div class="index_hardware_sensor_description index_hardware_speed_p">
               <p>속도 / </p>
-              <p>{{ hardware.speed }}Mbps</p>
+              <p>{{ hardwareData?.speed }} Mbps</p>
             </div>
           </div>
 
@@ -151,10 +148,10 @@
               <img src="~/static/images/wifi.svg" />
               <p>응답 속도</p>
             </div>
-            <p class="index_hardware_sensor_status">센서 정상 작동중</p>
+            <p class="index_hardware_sensor_status">센서 정상 {{ !hardwareData?.status?'작동중':'문제 발생' }}</p>
             <div class="index_hardware_sensor_description index_hardware_speed_p">
               <p>속도 / </p>
-              <p>{{ hardware.ping }}ms</p>
+              <p>{{ hardwareData?.ping }} ms</p>
             </div>
           </div>
 
@@ -163,7 +160,11 @@
               <img src="~/static/images/bettery2.svg" />
               <p>배터리 상태</p>
             </div>
-            <p class="index_hardware_sensor_status">센서 정상 작동중</p>
+            <p class="index_hardware_sensor_status">센서 정상 {{ !hardwareData?.status?'작동중':'문제 발생' }}</p>
+            <div class="index_hardware_sensor_description index_hardware_speed_rev">
+              <p>{{ hardwareData?.bettery }} </p>
+              <p>사용중</p>
+            </div>
           </div>
         </div>
       </div>
@@ -178,78 +179,78 @@
       <div class="index_sensor">
         <div class="index_sensor_title">
           <h1>토양 EC</h1>
-          <h1>측정 중</h1>
+          <h1>{{ !hardwareData?.status ? '측정 중' : '문제 발생' }}</h1>
         </div>
 
-        <h1>2m/s</h1>
+        <h1>{{ hardwareData?.soilEc }}m/s</h1>
         <div class="index_sensor_sub">
           <p>제배에 적합함</p>
-          <p>1분 전</p>
+          <p>{{ Math.round((now - Date.parse(hardwareData?.updatedAt)) / 1000 / 60) }}분 전</p>
         </div>
       </div>
 
       <div class="index_sensor">
         <div class="index_sensor_title">
-          <h1>토양 EC</h1>
-          <h1>측정 중</h1>
+          <h1>토양 온도</h1>
+          <h1>{{ !hardwareData?.status ? '측정 중' : '문제 발생' }}</h1>
         </div>
 
-        <h1>2m/s</h1>
+        <h1>{{ hardwareData?.soilTemp }}°C</h1>
         <div class="index_sensor_sub">
           <p>제배에 적합함</p>
-          <p>1분 전</p>
+          <p>{{ Math.round((now - Date.parse(hardwareData?.updatedAt)) / 1000 / 60) }}분 전</p>
         </div>
       </div>
 
       <div class="index_sensor">
         <div class="index_sensor_title">
-          <h1>토양 EC</h1>
-          <h1>측정 중</h1>
+          <h1>토양 습도</h1>
+          <h1>{{ !hardwareData?.status ? '측정 중' : '문제 발생' }}</h1>
         </div>
 
-        <h1>2m/s</h1>
+        <h1>{{ hardwareData?.soilHum }}%</h1>
         <div class="index_sensor_sub">
           <p>제배에 적합함</p>
-          <p>1분 전</p>
+          <p>{{ Math.round((now - Date.parse(hardwareData?.updatedAt)) / 1000 / 60) }}분 전</p>
         </div>
       </div>
 
       <div class="index_sensor">
         <div class="index_sensor_title">
-          <h1>토양 EC</h1>
-          <h1>측정 중</h1>
+          <h1>대기 온도</h1>
+          <h1>{{ !hardwareData?.status ? '측정 중' : '문제 발생' }}</h1>
         </div>
 
-        <h1>2m/s</h1>
+        <h1>{{ hardwareData?.airTemp }}°C</h1>
         <div class="index_sensor_sub">
           <p>제배에 적합함</p>
-          <p>1분 전</p>
+          <p>{{ Math.round((now - Date.parse(hardwareData?.updatedAt)) / 1000 / 60) }}분 전</p>
         </div>
       </div>
 
       <div class="index_sensor">
         <div class="index_sensor_title">
-          <h1>토양 EC</h1>
-          <h1>측정 중</h1>
+          <h1>대기 습도</h1>
+          <h1>{{ !hardwareData?.status ? '측정 중' : '문제 발생' }}</h1>
         </div>
 
-        <h1>2m/s</h1>
+        <h1>{{ hardwareData?.airHum }}%</h1>
         <div class="index_sensor_sub">
           <p>제배에 적합함</p>
-          <p>1분 전</p>
+          <p>{{ Math.round((now - Date.parse(hardwareData?.updatedAt)) / 1000 / 60) }}분 전</p>
         </div>
       </div>
 
       <div class="index_sensor">
         <div class="index_sensor_title">
-          <h1>토양 EC</h1>
-          <h1>측정 중</h1>
+          <h1>일사량</h1>
+          <h1>{{ !hardwareData?.status ? '측정 중' : '문제 발생' }}</h1>
         </div>
 
-        <h1>2m/s</h1>
+        <h1>{{ hardwareData?.solar }}w/㎡</h1>
         <div class="index_sensor_sub">
           <p>제배에 적합함</p>
-          <p>1분 전</p>
+          <p>{{ Math.round((now - Date.parse(hardwareData?.updatedAt)) / 1000 / 60) }}분 전</p>
         </div>
       </div>
     </div>
@@ -364,7 +365,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { getHardwareInfo } from '~/api';
 
 declare global {
   interface Window {
@@ -377,12 +377,16 @@ export default Vue.extend({
   data() {
     return {
       map: null,
-      hardware: {}
+      hardware: {},
+      now: new Date(),
     };
   },
   computed: {
     userData() {
       return this.$store.state.userData;
+    },
+    hardwareData() {
+      return this.$store.state.hardwareData;
     }
   },
   mounted() {
@@ -400,8 +404,6 @@ export default Vue.extend({
       this.initMap();
     }
     // 카카오 맵을 불러옴
-
-    this.hardware = getHardwareInfo();
   },
   methods: {
     initMap() {

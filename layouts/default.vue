@@ -34,6 +34,7 @@ export default Vue.extend({
 
     getAPI.defaults.headers.common.Authorization = this.$cookies.get('token');
     this.$store.dispatch('getUserData');
+    this.$store.dispatch('getHardwareData');
   }
 });
 </script>

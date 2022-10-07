@@ -49,10 +49,10 @@ export async function resetPassword(data: { token: string; password: string }) {
   return res;
 }
 
-export async function getHardwareInfo() {
+export async function getSensorById(id: string) {
   const res = await getAPI
-    .get('/hardware')
-    .then((res) => res)
+    .get(`/sensor/${id}`)
+    .then((res) => res.data)
     .catch((err) => err.response);
   return res;
 }
