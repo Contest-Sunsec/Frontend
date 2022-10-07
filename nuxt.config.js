@@ -53,4 +53,8 @@ export default {
     port: 8080,
   },
 
+  env: {
+    API_URL: process.env.API_URL,
+    KAKAO_API_KEY: process.env.KAKAO_API_KEY
+  }
 };
