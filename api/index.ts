@@ -48,3 +48,11 @@ export async function resetPassword(data: { token: string; password: string }) {
     .catch((err) => err.response);
   return res;
 }
+
+export async function getHardwareInfo() {
+  const res = await getAPI
+    .get('/hardware')
+    .then((res) => res)
+    .catch((err) => err.response);
+  return res;
+}

@@ -43,6 +43,15 @@
             placeholder="비밀번호를 입력해주세요."
           />
         </div>
+      
+        <div class="register_input">
+          <p>모델명</p>
+            <input
+              v-model="model"
+              type="text"
+              placeholder="하드웨어의 모델명을 입력해주세요."
+            />
+        </div>
       </div>
 
       <button v-if="!isRegister" class="register_button" @click="register">회원가입</button>
@@ -68,6 +77,7 @@ export default Vue.extend({
       password: '',
       passwordCheck: '',
       email: '',
+      model: '',
       error: false,
       errorMessage: '',
       isRegister: false,
@@ -92,6 +102,7 @@ export default Vue.extend({
         name: this.username,
         email: this.email,
         password: this.password,
+        hardwareId: this.model,
       };
 
       const res = await postRegister(req);

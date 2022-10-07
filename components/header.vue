@@ -5,11 +5,6 @@
       <p>Farmsert</p>
     </div>
 
-    <div class="header_menus">
-      <p class="header_menus_item header_menus_selected">홈</p>
-      <p class="header_menus_item">작물</p>
-    </div>
-
     <div class="header_profile">
       <div class="header_profile_wrapper_notification">
         <i class="header_profile_new"></i>

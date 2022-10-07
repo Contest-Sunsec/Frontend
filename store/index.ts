@@ -1,5 +1,7 @@
 
 import { GetterTree, MutationTree, ActionTree } from 'vuex';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { NuxtCookies } from 'cookie-universal-nuxt';
 import { getUserData } from '~/api';
 
 export const state = () => ({
@@ -23,6 +25,8 @@ export const actions: ActionTree<RootState, RootState> = {
     const res = await getUserData();
     if (res.status === 200) {
       commit('setUserData', res.data.responseData.user);
+    } else {
+      window.$nuxt.$cookies.remove('token');
     }
   }
 };

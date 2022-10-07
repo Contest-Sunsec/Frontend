@@ -10,7 +10,7 @@
         </button>
 
         <div class="index_info_item index_info_item_model">
-          <p>Farmsert-M14598U</p>
+          <p>Farmsert-{{ userData.hardwareId }}</p>
         </div>
       </div>
     </div>
@@ -18,7 +18,7 @@
     <div class="index_hardware">
       <div class="index_hardware_top">
         <div class="index_box index_hardware_temp">
-          <p>서울 용산구</p>
+          <p>{{ hardware.position }}</p>
           <h1>27°C</h1>
           <p>(최저기온 24°C)</p>
           <p>습함, 매우 더움</p>
@@ -50,7 +50,7 @@
           />
           <div class="index_hardware_info_box">
             <div class="index_hardware_info_title">
-              <p>Farmsert-M14598U</p>
+              <p>Farmsert-{{ userData.hardwareId }}</p>
               <p>정상 연결됨</p>
             </div>
             <div class="index_hardware_info_description">
@@ -65,7 +65,7 @@
                 <div class="index_hardware_info_item_img">
                   <img src="~/static/images/bettery.svg" />
                 </div>
-                <p>배터리 42%</p>
+                <p>정상 작동 중</p>
               </div>
 
               <div class="index_hardware_info_item">
@@ -142,7 +142,7 @@
             <p class="index_hardware_sensor_status">센서 정상 작동중</p>
             <div class="index_hardware_sensor_description index_hardware_speed_p">
               <p>속도 / </p>
-              <p>320Mbps</p>
+              <p>{{ hardware.speed }}Mbps</p>
             </div>
           </div>
 
@@ -154,7 +154,7 @@
             <p class="index_hardware_sensor_status">센서 정상 작동중</p>
             <div class="index_hardware_sensor_description index_hardware_speed_p">
               <p>속도 / </p>
-              <p>5ms</p>
+              <p>{{ hardware.ping }}ms</p>
             </div>
           </div>
 
@@ -164,10 +164,6 @@
               <p>배터리 상태</p>
             </div>
             <p class="index_hardware_sensor_status">센서 정상 작동중</p>
-            <div class="index_hardware_sensor_description index_hardware_speed_rev">
-              <p>420mah </p>
-              <p>사용중</p>
-            </div>
           </div>
         </div>
       </div>
@@ -256,13 +252,119 @@
           <p>1분 전</p>
         </div>
       </div>
+    </div>
 
+
+    <div class="index_title">
+      <h1>작물 정보</h1>
+    </div>
+
+    <div class="index_crops_wrapper">
+      <div class="index_crops">
+        <div class="index_crops_title">
+          <img src="~/static/images/leaf.svg">
+          <h1>토마토</h1>
+        </div>
+
+        <div class="index_crops_desc_wrapper">
+          <div class="index_crops_desc">
+            <img src="~/static/images/check.svg">
+            <p>상물 상태가 <strong>정상적임</strong></p>
+          </div>
+          <div class="index_crops_desc">
+            <img src="~/static/images/check.svg">
+            <p><strong>정상적으로 제배중</strong></p>
+          </div>
+          <div class="index_crops_desc">
+            <img src="~/static/images/check.svg">
+            <p><strong>효능이 입증됨</strong></p>
+          </div>
+          <div class="index_crops_desc">
+            <img src="~/static/images/safety_green.svg">
+            <p>해충으로부터 <strong>안전함</strong></p>
+          </div>
+        </div>
+
+        <div class="index_crops_temp">
+          <div class="index_crops_temp_in">
+            <h1>23°C</h1>
+            <p>적절한 온도</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="index_crops">
+        <div class="index_crops_title">
+          <img src="~/static/images/leaf.svg">
+          <h1>토마토</h1>
+        </div>
+
+        <div class="index_crops_desc_wrapper">
+          <div class="index_crops_desc">
+            <img src="~/static/images/check.svg">
+            <p>상물 상태가 <strong>정상적임</strong></p>
+          </div>
+          <div class="index_crops_desc">
+            <img src="~/static/images/check.svg">
+            <p><strong>정상적으로 제배중</strong></p>
+          </div>
+          <div class="index_crops_desc">
+            <img src="~/static/images/check.svg">
+            <p><strong>효능이 입증됨</strong></p>
+          </div>
+          <div class="index_crops_desc">
+            <img src="~/static/images/safety_green.svg">
+            <p>해충으로부터 <strong>안전함</strong></p>
+          </div>
+        </div>
+
+        <div class="index_crops_temp">
+          <div class="index_crops_temp_in">
+            <h1>23°C</h1>
+            <p>적절한 온도</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="index_crops">
+        <div class="index_crops_title">
+          <img src="~/static/images/leaf.svg">
+          <h1>토마토</h1>
+        </div>
+
+        <div class="index_crops_desc_wrapper">
+          <div class="index_crops_desc">
+            <img src="~/static/images/check.svg">
+            <p>상물 상태가 <strong>정상적임</strong></p>
+          </div>
+          <div class="index_crops_desc">
+            <img src="~/static/images/check.svg">
+            <p><strong>정상적으로 제배중</strong></p>
+          </div>
+          <div class="index_crops_desc">
+            <img src="~/static/images/check.svg">
+            <p><strong>효능이 입증됨</strong></p>
+          </div>
+          <div class="index_crops_desc">
+            <img src="~/static/images/safety_green.svg">
+            <p>해충으로부터 <strong>안전함</strong></p>
+          </div>
+        </div>
+
+        <div class="index_crops_temp">
+          <div class="index_crops_temp_in">
+            <h1>23°C</h1>
+            <p>적절한 온도</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import { getHardwareInfo } from '~/api';
 
 declare global {
   interface Window {
@@ -274,7 +376,8 @@ export default Vue.extend({
   name: 'IndexPage',
   data() {
     return {
-      map: null
+      map: null,
+      hardware: {}
     };
   },
   computed: {
@@ -297,6 +400,8 @@ export default Vue.extend({
       this.initMap();
     }
     // 카카오 맵을 불러옴
+
+    this.hardware = getHardwareInfo();
   },
   methods: {
     initMap() {
