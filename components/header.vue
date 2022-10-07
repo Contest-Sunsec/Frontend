@@ -41,5 +41,5 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-@import '~/static/scss/Header.scss';
+@import '~/static/scss/header.scss';
 </style>

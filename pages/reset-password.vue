@@ -73,7 +73,7 @@ export default Vue.extend({
         this.textContent.message = ['이제 Farmsert를 시작해보세요!'];
       } else {
         this.error = true;
-        this.errorMessage = res.data.message; 
+        this.errorMessage = res.data.message;
       }
     },
     redirectLogin() {
