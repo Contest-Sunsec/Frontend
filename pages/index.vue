@@ -275,7 +275,7 @@
         </div>
       </div>
 
-      <div class="index_feedback_wrapper">
+      <div :style="{'grid-template-columns': `repeat(${hardwareData?.message?.data.length}, 465px)`}" class="index_feedback_wrapper">
 
         <div v-for="(i, k) in hardwareData?.message?.data" :key="k" class="index_feedback">
           <div class="index_feedback_block">
@@ -324,6 +324,7 @@ export default Vue.extend({
       map: null,
       hardware: {},
       now: new Date(),
+      sytle: {}
     };
   },
   computed: {
