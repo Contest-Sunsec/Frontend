@@ -162,7 +162,7 @@
             </div>
             <p class="index_hardware_sensor_status">센서 정상 {{ !hardwareData?.status?'작동중':'문제 발생' }}</p>
             <div class="index_hardware_sensor_description index_hardware_speed_rev">
-              <p>{{ hardwareData?.bettery }} </p>
+              <p>{{ hardwareData?.bettery }} V</p>
               <p>사용중</p>
             </div>
           </div>
@@ -182,7 +182,7 @@
           <h1>{{ !hardwareData?.status ? '측정 중' : '문제 발생' }}</h1>
         </div>
 
-        <h1>{{ hardwareData?.soilEc }}m/s</h1>
+        <h1>{{ hardwareData?.soilEc }}dS/m</h1>
         <div class="index_sensor_sub">
           <p>제배에 적합함</p>
           <p>{{ Math.round((now - Date.parse(hardwareData?.updatedAt)) / 1000 / 60) }}분 전</p>
@@ -256,8 +256,9 @@
     </div>
 
 
-    <div class="index_title">
-      <h1>작물 정보</h1>
+    <div class="index_title index_feedback_title">
+      <h1>작물 점수 보고</h1>
+      <h1 v-if="hardwareData?.message?.data">피드백</h1>
     </div>
 
     <div class="index_crops_wrapper">
@@ -266,98 +267,42 @@
           <img src="~/static/images/leaf.svg">
           <h1>토마토</h1>
         </div>
-
-        <div class="index_crops_desc_wrapper">
-          <div class="index_crops_desc">
-            <img src="~/static/images/check.svg">
-            <p>상물 상태가 <strong>정상적임</strong></p>
-          </div>
-          <div class="index_crops_desc">
-            <img src="~/static/images/check.svg">
-            <p><strong>정상적으로 제배중</strong></p>
-          </div>
-          <div class="index_crops_desc">
-            <img src="~/static/images/check.svg">
-            <p><strong>효능이 입증됨</strong></p>
-          </div>
-          <div class="index_crops_desc">
-            <img src="~/static/images/safety_green.svg">
-            <p>해충으로부터 <strong>안전함</strong></p>
-          </div>
-        </div>
-
         <div class="index_crops_temp">
           <div class="index_crops_temp_in">
-            <h1>23°C</h1>
-            <p>적절한 온도</p>
+            <h1>{{ hardwareData?.message?.score }}점</h1>
+            <p>{{ hardwareData?.message?.scoreMessage }}</p>
           </div>
         </div>
       </div>
 
-      <div class="index_crops">
-        <div class="index_crops_title">
-          <img src="~/static/images/leaf.svg">
-          <h1>토마토</h1>
-        </div>
+      <div class="index_feedback_wrapper">
 
-        <div class="index_crops_desc_wrapper">
-          <div class="index_crops_desc">
-            <img src="~/static/images/check.svg">
-            <p>상물 상태가 <strong>정상적임</strong></p>
-          </div>
-          <div class="index_crops_desc">
-            <img src="~/static/images/check.svg">
-            <p><strong>정상적으로 제배중</strong></p>
-          </div>
-          <div class="index_crops_desc">
-            <img src="~/static/images/check.svg">
-            <p><strong>효능이 입증됨</strong></p>
-          </div>
-          <div class="index_crops_desc">
-            <img src="~/static/images/safety_green.svg">
-            <p>해충으로부터 <strong>안전함</strong></p>
-          </div>
-        </div>
+        <div v-for="(i, k) in hardwareData?.message?.data" :key="k" class="index_feedback">
+          <div class="index_feedback_block">
+            <div class="index_feedback_left">
+              <div class="index_feedback_left_title">
+                <h1>{{ i.title[0] }}</h1>
+                <h2 :class="[i.standard ? 'index_feedback_red' : 'index_feedback_blue']">{{ i.title[1] }}</h2>
+              </div>
+              <div class="index_feedback_left_desc">
+                <p>{{ i.message }}</p>
+              </div>
+            </div>
 
-        <div class="index_crops_temp">
-          <div class="index_crops_temp_in">
-            <h1>23°C</h1>
-            <p>적절한 온도</p>
-          </div>
-        </div>
-      </div>
+            <div class="index_feedback_right">
+              <div class="index_feedback_right_item">
+                <p>현재</p>
+                <h1 :class="[i.standard ? 'index_feedback_red' : 'index_feedback_blue']">{{ hardwareData[i.type] + hardwareData?.message?.messageUnit[i.type] }}</h1>
+              </div>
 
-      <div class="index_crops">
-        <div class="index_crops_title">
-          <img src="~/static/images/leaf.svg">
-          <h1>토마토</h1>
-        </div>
-
-        <div class="index_crops_desc_wrapper">
-          <div class="index_crops_desc">
-            <img src="~/static/images/check.svg">
-            <p>상물 상태가 <strong>정상적임</strong></p>
-          </div>
-          <div class="index_crops_desc">
-            <img src="~/static/images/check.svg">
-            <p><strong>정상적으로 제배중</strong></p>
-          </div>
-          <div class="index_crops_desc">
-            <img src="~/static/images/check.svg">
-            <p><strong>효능이 입증됨</strong></p>
-          </div>
-          <div class="index_crops_desc">
-            <img src="~/static/images/safety_green.svg">
-            <p>해충으로부터 <strong>안전함</strong></p>
+              <div class="index_feedback_right_item">
+                <p>기준</p>
+                <h1 class="index_feedback_green">{{ hardwareData?.message?.defaultData[i.type] + hardwareData?.message?.messageUnit[i.type] }}</h1>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="index_crops_temp">
-          <div class="index_crops_temp_in">
-            <h1>23°C</h1>
-            <p>적절한 온도</p>
-          </div>
-        </div>
       </div>
     </div>
   </div>
