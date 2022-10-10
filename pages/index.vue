@@ -335,6 +335,11 @@ export default Vue.extend({
       return this.$store.state.hardwareData;
     }
   },
+  watch: {
+    hardwareData() {
+      this.initMap();
+    }
+  },
   mounted() {
     if (!window.kakao || !window.kakao.maps) {
       const script = document.createElement('script');
@@ -359,6 +364,16 @@ export default Vue.extend({
         level: 3,
       };
       this.map = new window.kakao.maps.Map(container, options);
+
+      const markerPosition = new window.kakao.maps.LatLng(this.hardwareData.latitude , this.hardwareData.longitude);
+
+      // 마커를 생성합니다
+      const marker = new window.kakao.maps.Marker({
+          position: markerPosition
+      });
+
+      // 마커가 지도 위에 표시되도록 설정합니다
+      marker.setMap(this.map);
     },
   },
 });
