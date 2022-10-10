@@ -355,7 +355,7 @@ export default Vue.extend({
     initMap() {
       const container = document.getElementById('map');
       const options = {
-        center: new window.kakao.maps.LatLng(37.566826, 126.9786567),
+        center: new window.kakao.maps.LatLng(this.hardwareData.latitude , this.hardwareData.longitude),
         level: 3,
       };
       this.map = new window.kakao.maps.Map(container, options);
