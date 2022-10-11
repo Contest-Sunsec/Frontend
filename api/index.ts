@@ -35,7 +35,7 @@ export async function getUserData() {
 
 export async function forgotPassword(email: object) {
   const res = await getAPI
-    .post('/auth/forgotPassword', email)
+    .post('/auth/forgot', email)
     .then((res) => res)
     .catch((err) => err.response);
   return res;
@@ -43,7 +43,7 @@ export async function forgotPassword(email: object) {
 
 export async function resetPassword(data: { token: string; password: string }) {
   const res = await getAPI
-    .post('/auth/resetPassword', data)
+    .post('/auth/reset', data)
     .then((res) => res)
     .catch((err) => err.response);
   return res;
