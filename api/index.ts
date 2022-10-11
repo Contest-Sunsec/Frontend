@@ -35,7 +35,7 @@ export async function getUserData() {
 
 export async function forgotPassword(email: object) {
   const res = await getAPI
-    .post('/auth/forgot', email)
+    .post('/auth/forget', email)
     .then((res) => res)
     .catch((err) => err.response);
   return res;
