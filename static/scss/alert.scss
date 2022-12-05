@@ -1,0 +1,13 @@
+.alert_layout {
+  width: 100%;
+  height: 100vh;
+
+  background-color: #fafafa;
+
+  &_padding {
+    width: 100%;
+    height: 100%;
+    padding: 0% 13vw;
+    padding-top: 95px;
+  }
+}

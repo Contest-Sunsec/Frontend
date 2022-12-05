@@ -11,6 +11,7 @@
         <img
           src="~/static/images/notification.svg"
           class="header_profile_notification"
+          @click="gotoAlert"
         />
       </div>
 
@@ -35,6 +36,11 @@ export default Vue.extend({
   computed: {
     userData() {
       return this.$store.state.userData;
+    },
+  },
+  methods: {
+    gotoAlert() {
+      this.$router.push('/alert');
     },
   }
 });
