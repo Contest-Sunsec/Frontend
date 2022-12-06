@@ -265,7 +265,7 @@
       <div class="index_crops">
         <div class="index_crops_title">
           <img src="~/static/images/leaf.svg">
-          <h1>토마토</h1>
+          <h1>감자</h1>
         </div>
         <div class="index_crops_temp">
           <div class="index_crops_temp_in">

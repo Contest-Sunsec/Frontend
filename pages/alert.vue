@@ -2,22 +2,22 @@
 <template>
   <div class="alert">
     <div class="alert_title">
-      <h1>현재 총 <strong>{{  }}개의 알람</strong>이 와있어요</h1>
+      <h1>현재 총 <strong>{{ alert.length }}개의 알람</strong>이 와있어요</h1>
       <div class="alert_title_btns">
         <button>알람</button>
-        <button>통계</button>
+        <button @click="gotoStatistics">통계</button>
       </div>
     </div>
     <div class="alert_wrapper">
-      <div class="alert_box">
+      <div v-for="(i, n) in alert" :key="n" class="alert_box">
         <div class="alert_box_title">
           <div class="alert_box_title_img">
             <img src="@/static/images/bettery.svg" />
           </div>
-          <h1>(하드웨어) 배터리의 값이 잘 맞지 않는거 같아요, 기기 상태를 확인해주세요.</h1>
+          <h1>{{ i.name }}</h1>
         </div>
         <div class="alert_box_button">
-          <button>확인완료</button>
+          <button @click="check(i.id)">확인완료</button>
           <button>보고하기</button>
         </div>
       </div>
@@ -27,11 +27,30 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { getAlert, checkAlert } from '~/api';
 
 export default Vue.extend({
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'Alert',
   layout: 'alert',
+  data() {
+    return {
+      // eslint-disable-next-line vue/no-unused-properties
+      alert: [] as any[],
+    };
+  },
+  async mounted() {
+    this.alert = await getAlert(this.$cookies.get('token'));
+  },
+  methods: {
+    async check(id: string) {
+      await checkAlert({token: this.$cookies.get('token'), id});
+      window.location.reload();
+    },
+    gotoStatistics() {
+      this.$router.push('/statistics');
+    },
+  }
 });
 </script>
 

@@ -1,4 +1,3 @@
-// axios
 import axios from 'axios';
 import type { UserLoginForm, UserRegisterForm } from '../types';
 
@@ -55,4 +54,23 @@ export async function getSensorById(id: string) {
     .then((res) => res.data)
     .catch((err) => err.response);
   return res;
+}
+
+export async function getAlert(token: string) {
+  const res = await getAPI.get(`/auth/alert?token=${token}`)
+    .then((res) => res.data)
+    .catch((err) => err.response);
+  return res;
+}
+
+export async function getInfor(token: string) {
+  const res = await getAPI.get(`/infor?token=${token}`)
+    .then((res) => res.data)
+    .catch((err) => err.response);
+  return res;
+}
+
+export async function checkAlert(data: { token: string, id: string }) {
+  const res = await getAPI.post('/auth/hardwareError', data);
+  return res.data;
 }
