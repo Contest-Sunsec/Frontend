@@ -47,9 +47,7 @@ export default Vue.extend({
     };
 
     this.data = await getInfor(this.$cookies.get('token'));
-    console.log(this.data);
     this.ctx = (document.getElementById('myChart') as HTMLCanvasElement).getContext('2d');
-    this.ctx.height = window.innerHeight;
     this.ctx.width = window.innerWidth;
     this.reloadChart();
   },
