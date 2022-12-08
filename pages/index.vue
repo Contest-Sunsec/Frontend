@@ -179,7 +179,7 @@
       <div class="index_sensor">
         <div class="index_sensor_title">
           <h1>토양 EC</h1>
-          <h1>{{ !hardwareData?.status ? '측정 중' : '문제 발생' }}</h1>
+          <h1>측정 중</h1>
         </div>
 
         <h1>{{ hardwareData?.soilEc }}dS/m</h1>
@@ -192,7 +192,7 @@
       <div class="index_sensor">
         <div class="index_sensor_title">
           <h1>토양 온도</h1>
-          <h1>{{ !hardwareData?.status ? '측정 중' : '문제 발생' }}</h1>
+          <h1>측정 중</h1>
         </div>
 
         <h1>{{ hardwareData?.soilTemp }}°C</h1>
@@ -205,7 +205,7 @@
       <div class="index_sensor">
         <div class="index_sensor_title">
           <h1>토양 습도</h1>
-          <h1>{{ !hardwareData?.status ? '측정 중' : '문제 발생' }}</h1>
+          <h1>측정 중</h1>
         </div>
 
         <h1>{{ hardwareData?.soilHum }}%</h1>
@@ -218,7 +218,7 @@
       <div class="index_sensor">
         <div class="index_sensor_title">
           <h1>대기 온도</h1>
-          <h1>{{ !hardwareData?.status ? '측정 중' : '문제 발생' }}</h1>
+          <h1>측정 중</h1>
         </div>
 
         <h1>{{ hardwareData?.airTemp }}°C</h1>
@@ -231,7 +231,7 @@
       <div class="index_sensor">
         <div class="index_sensor_title">
           <h1>대기 습도</h1>
-          <h1>{{ !hardwareData?.status ? '측정 중' : '문제 발생' }}</h1>
+          <h1>측정 중</h1>
         </div>
 
         <h1>{{ hardwareData?.airHum }}%</h1>
@@ -244,7 +244,7 @@
       <div class="index_sensor">
         <div class="index_sensor_title">
           <h1>일사량</h1>
-          <h1>{{ !hardwareData?.status ? '측정 중' : '문제 발생' }}</h1>
+          <h1>측정 중</h1>
         </div>
 
         <h1>{{ hardwareData?.solar }}w/㎡</h1>
